@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-4 mb-4">
         <div class="col-lg-6">
             <div class="card border-0 shadow-sm">
                 <div class="card-header bg-white">
@@ -115,6 +115,68 @@
                             @endforelse
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <h3 class="h5 mb-0">Latest Services</h3>
+                    <a href="{{ route('admin.services.index') }}" class="btn btn-sm btn-outline-dark">Manage</a>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        @forelse ($recentServices as $service)
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex gap-2 align-items-center">
+                                    @if ($service->image_url)
+                                        <img src="{{ $service->image_url }}" alt="{{ $service->title }}" style="width: 72px; height: 52px; object-fit: cover; border-radius: .3rem;">
+                                    @else
+                                        <div class="d-flex align-items-center justify-content-center text-secondary small" style="width: 72px; height: 52px; background: #f1f3f5; border-radius: .3rem;">No image</div>
+                                    @endif
+                                    <div class="min-w-0">
+                                        <div class="fw-semibold text-truncate">{{ $service->title }}</div>
+                                        <div class="text-secondary small text-truncate">{{ $service->slug }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-12 text-secondary small">No services available.</div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <h3 class="h5 mb-0">Latest Blog Posts</h3>
+                    <a href="{{ route('admin.blog-posts.index') }}" class="btn btn-sm btn-outline-dark">Manage</a>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        @forelse ($recentBlogPosts as $blogPost)
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex gap-2 align-items-center">
+                                    @if ($blogPost->cover_image_url)
+                                        <img src="{{ $blogPost->cover_image_url }}" alt="{{ $blogPost->title }}" style="width: 72px; height: 52px; object-fit: cover; border-radius: .3rem;">
+                                    @else
+                                        <div class="d-flex align-items-center justify-content-center text-secondary small" style="width: 72px; height: 52px; background: #f1f3f5; border-radius: .3rem;">No image</div>
+                                    @endif
+                                    <div class="min-w-0">
+                                        <div class="fw-semibold text-truncate">{{ $blogPost->title }}</div>
+                                        <div class="text-secondary small text-truncate">{{ $blogPost->slug }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-12 text-secondary small">No blog posts available.</div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>

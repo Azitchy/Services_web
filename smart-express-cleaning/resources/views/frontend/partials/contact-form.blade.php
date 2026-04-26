@@ -26,11 +26,11 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label">First name</label>
-                                        <input type="text" name="first_name" class="form-control" placeholder="Ava" value="{{ old('first_name') }}" required>
+                                        <input type="text" name="first_name" class="form-control" placeholder="First name" value="{{ old('first_name') }}" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Last name</label>
-                                        <input type="text" name="last_name" class="form-control" placeholder="Patel" value="{{ old('last_name') }}" required>
+                                        <input type="text" name="last_name" class="form-control" placeholder="Last name" value="{{ old('last_name') }}" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Email</label>
@@ -41,7 +41,7 @@
                                         <input type="text" name="company_name" class="form-control" placeholder="Smart Stays LLC" value="{{ old('company_name') }}">
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">Spill the details (we will mop it up)</label>
+                                        <label class="form-label">Spill the details (we will contact it up)</label>
                                         <textarea name="message" class="form-control" rows="4" placeholder="Number of properties, locations, cleaning frequency..." required>{{ old('message') }}</textarea>
                                     </div>
                                     <div class="col-12">

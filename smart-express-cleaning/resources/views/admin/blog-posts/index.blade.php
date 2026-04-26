@@ -13,6 +13,7 @@
             <table class="table align-middle mb-0">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Title</th>
                         <th>Slug</th>
                         <th>Published</th>
@@ -23,6 +24,13 @@
                 <tbody>
                     @forelse ($blogPosts as $blogPost)
                         <tr>
+                            <td>
+                                @if ($blogPost->cover_image_url)
+                                    <img src="{{ $blogPost->cover_image_url }}" alt="{{ $blogPost->title }}" style="width: 64px; height: 44px; object-fit: cover; border-radius: .25rem;">
+                                @else
+                                    <span class="text-secondary small">No image</span>
+                                @endif
+                            </td>
                             <td>{{ $blogPost->title }}</td>
                             <td><code>{{ $blogPost->slug }}</code></td>
                             <td>{{ optional($blogPost->published_at)->format('Y-m-d H:i') ?: '-' }}</td>
@@ -44,7 +52,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center text-secondary py-4">No blog posts found.</td>
+                            <td colspan="6" class="text-center text-secondary py-4">No blog posts found.</td>
                         </tr>
                     @endforelse
                 </tbody>

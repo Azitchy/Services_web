@@ -7,7 +7,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.services.update', $service) }}">
+            <form method="POST" action="{{ route('admin.services.update', $service) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 @php($buttonLabel = 'Update Service')

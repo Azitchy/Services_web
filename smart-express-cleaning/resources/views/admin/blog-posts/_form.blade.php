@@ -20,8 +20,13 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label">Cover Image URL</label>
-    <input type="url" name="cover_image_url" class="form-control" value="{{ old('cover_image_url', $blogPost->cover_image_url ?? '') }}">
+    <label class="form-label">Upload Cover Image</label>
+    <input type="file" name="cover_image_file" class="form-control" accept="image/*">
+    @if (isset($blogPost) && ! empty($blogPost->cover_image_url))
+        <div class="mt-2">
+            <img src="{{ $blogPost->cover_image_url }}" alt="{{ $blogPost->title }}" style="width: 140px; height: 90px; object-fit: cover; border-radius: .35rem;">
+        </div>
+    @endif
 </div>
 
 <div class="row g-3">

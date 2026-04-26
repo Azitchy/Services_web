@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-7">
-                <h3 class="h2 mb-2">Mop & Pop</h3>
+                <h3 class="h2 mb-2">Smart Express Cleaning Services</h3>
                 <h4 class="h6 text-uppercase text-secondary">Head Office</h4>
                 <p class="mb-0">From deep cleans to holiday home turnarounds, we keep spaces sparkling and guest-ready. Bin Dasmal Building, Al Quoz, Dubai, UAE.</p>
             </div>

@@ -149,9 +149,9 @@ class DemoDataSeeder extends Seeder
             [
                 'name' => 'Home',
                 'hero_kicker' => 'Home',
-                'hero_title' => 'Mop and Pop',
+                'hero_title' => 'Smart Express Cleaning Services',
                 'hero_subtitle' => 'Holiday Home Cleaning Experts in Dubai. Guest-ready turnovers, deep cleans, and reliable service built for hosts and property managers.',
-                'section_title' => 'Why Choose Mop and Pop?',
+                'section_title' => 'Why Choose Smart Express Cleaning Services?',
                 'section_subtitle' => 'Built around Airbnb hosting standards, our service makes every check-in feel professionally prepared and truly guest-ready.',
                 'extra_content' => [
                     'hero_button' => 'Pop Me a Price',
@@ -172,7 +172,7 @@ class DemoDataSeeder extends Seeder
                 'name' => 'About Us',
                 'hero_kicker' => 'About Us',
                 'hero_title' => 'Hospitality-level cleaning, built for modern hosting teams.',
-                'hero_subtitle' => 'Mop & Pop supports Airbnb hosts and property managers with reliable, process-driven cleaning across Dubai.',
+                'hero_subtitle' => 'Smart Express Cleaning Services supports Airbnb hosts and property managers with reliable, process-driven cleaning across Dubai.',
                 'section_title' => 'Who We Are',
                 'section_subtitle' => 'We are a guest-experience focused cleaning company.',
                 'extra_content' => [

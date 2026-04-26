@@ -13,6 +13,7 @@
             <table class="table align-middle mb-0">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Order</th>
                         <th>Title</th>
                         <th>Slug</th>
@@ -23,6 +24,13 @@
                 <tbody>
                     @forelse ($services as $service)
                         <tr>
+                            <td>
+                                @if ($service->image_url)
+                                    <img src="{{ $service->image_url }}" alt="{{ $service->title }}" style="width: 64px; height: 44px; object-fit: cover; border-radius: .25rem;">
+                                @else
+                                    <span class="text-secondary small">No image</span>
+                                @endif
+                            </td>
                             <td>{{ $service->sort_order }}</td>
                             <td>{{ $service->title }}</td>
                             <td><code>{{ $service->slug }}</code></td>
@@ -44,7 +52,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center text-secondary py-4">No services found.</td>
+                            <td colspan="6" class="text-center text-secondary py-4">No services found.</td>
                         </tr>
                     @endforelse
                 </tbody>

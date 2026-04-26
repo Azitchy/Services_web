@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row align-items-end mb-4">
                 <div class="col-lg-8 fade-up">
-                    <h2 class="section-title mb-2">{{ $page->section_title ?: 'Why Choose Mop and Pop?' }}</h2>
+                    <h2 class="section-title mb-2">{{ $page->section_title ?: 'Why Choose Smart Express Cleaning Services?' }}</h2>
                     <p class="section-lead mb-0">{{ $page->section_subtitle ?: 'Built around Airbnb hosting standards, our service makes every check-in feel professionally prepared and truly guest-ready.' }}</p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-3 mt-lg-0 fade-up">

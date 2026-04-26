@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm *)",
+      "Bash(try { npm --prefix \"d:\\project work\\Dailoride\\Services_web\\smart-express-cleaning\" install 2>&1 } catch { echo \"Error: $…)",
+      "Bash(composer *)",
+      "Bash(php *)",
+      "Bash(php *)"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-nav">
     <div class="container">
-        <a class="navbar-brand brand-mark" href="{{ route('home') }}">Mop & Pop</a>
+        <a class="navbar-brand brand-mark" href="{{ route('home') }}">Smart Express Cleaning Services</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,7 +11,7 @@
                 <li class="nav-item"><a class="nav-link @if(request()->routeIs('services')) active @endif" href="{{ route('services') }}">Our Services</a></li>
                 <li class="nav-item"><a class="nav-link @if(request()->routeIs('blogs.*')) active @endif" href="{{ route('blogs.index') }}">Blogs</a></li>
                 <li class="nav-item ms-lg-2">
-                    <a class="btn btn-sm btn-pop" href="{{ route('home') }}#contact">Pop Me a Price</a>
+                    <a class="btn btn-sm btn-pop" href="{{ route('home') }}#contact">Enquiry</a>
                 </li>
             </ul>
         </div>

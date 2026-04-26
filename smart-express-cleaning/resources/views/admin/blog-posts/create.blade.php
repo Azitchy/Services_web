@@ -7,7 +7,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.blog-posts.store') }}">
+            <form method="POST" action="{{ route('admin.blog-posts.store') }}" enctype="multipart/form-data">
                 @csrf
                 @php($buttonLabel = 'Create Blog Post')
                 @include('admin.blog-posts._form')

@@ -7,7 +7,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin.services.store') }}">
+            <form method="POST" action="{{ route('admin.services.store') }}" enctype="multipart/form-data">
                 @csrf
                 @php($buttonLabel = 'Create Service')
                 @include('admin.services._form')

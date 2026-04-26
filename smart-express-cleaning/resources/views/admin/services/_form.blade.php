@@ -19,8 +19,13 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label">Image URL</label>
-    <input type="url" name="image_url" class="form-control" value="{{ old('image_url', $service->image_url ?? '') }}">
+    <label class="form-label">Upload Image</label>
+    <input type="file" name="image_file" class="form-control" accept="image/*">
+    @if (isset($service) && ! empty($service->image_url))
+        <div class="mt-2">
+            <img src="{{ $service->image_url }}" alt="{{ $service->title }}" style="width: 140px; height: 90px; object-fit: cover; border-radius: .35rem;">
+        </div>
+    @endif
 </div>
 
 <div class="mb-3">

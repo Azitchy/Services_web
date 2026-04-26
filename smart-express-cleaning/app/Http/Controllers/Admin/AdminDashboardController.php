@@ -40,6 +40,19 @@ class AdminDashboardController extends Controller
             ->take(8)
             ->get();
 
-        return view('admin.dashboard', compact('stats', 'recentInquiries', 'upcomingJobs'));
+        $recentServices = Service::query()
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->latest('id')
+            ->take(4)
+            ->get();
+
+        $recentBlogPosts = BlogPost::query()
+            ->where('is_published', true)
+            ->latest('published_at')
+            ->take(4)
+            ->get();
+
+        return view('admin.dashboard', compact('stats', 'recentInquiries', 'upcomingJobs', 'recentServices', 'recentBlogPosts'));
     }
 }
