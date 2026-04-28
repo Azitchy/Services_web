@@ -28,4 +28,17 @@ class BlogPost extends Model
             'is_published' => 'boolean',
         ];
     }
+
+    public function getCoverImageUrlAttribute()
+    {
+        if (! isset($this->attributes['cover_image_url']) || ! $this->attributes['cover_image_url']) {
+            return null;
+        }
+
+        if (filter_var($this->attributes['cover_image_url'], FILTER_VALIDATE_URL)) {
+            return $this->attributes['cover_image_url'];
+        }
+
+        return \Illuminate\Support\Facades\Storage::disk('public')->url($this->attributes['cover_image_url']);
+    }
 }

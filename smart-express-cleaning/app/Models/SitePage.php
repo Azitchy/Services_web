@@ -29,4 +29,17 @@ class SitePage extends Model
             'is_active' => 'boolean',
         ];
     }
+
+    public function getHeroImageUrlAttribute()
+    {
+        if (! isset($this->attributes['hero_image_url']) || ! $this->attributes['hero_image_url']) {
+            return null;
+        }
+
+        if (filter_var($this->attributes['hero_image_url'], FILTER_VALIDATE_URL)) {
+            return $this->attributes['hero_image_url'];
+        }
+
+        return \Illuminate\Support\Facades\Storage::disk('public')->url($this->attributes['hero_image_url']);
+    }
 }

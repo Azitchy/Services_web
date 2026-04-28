@@ -96,19 +96,17 @@ class AdminBlogPostController extends Controller
 
     private function storeImage(UploadedFile $file): string
     {
-        return Storage::disk('public')->url($file->store('uploads/blog-posts', 'public'));
+        return $file->store('uploads/blog-posts', 'public');
     }
 
-    private function deleteStoredImage(?string $imageUrl): void
+    private function deleteStoredImage(?string $imagePath): void
     {
-        if (! $imageUrl || ! str_contains($imageUrl, '/storage/')) {
+        if (! $imagePath) {
             return;
         }
 
-        $path = ltrim(str_replace('/storage/', '', parse_url($imageUrl, PHP_URL_PATH) ?: ''), '/');
-
-        if ($path !== '' && Storage::disk('public')->exists($path)) {
-            Storage::disk('public')->delete($path);
+        if (Storage::disk('public')->exists($imagePath)) {
+            Storage::disk('public')->delete($imagePath);
         }
     }
 }

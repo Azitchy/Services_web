@@ -25,4 +25,17 @@ class Service extends Model
             'is_active' => 'boolean',
         ];
     }
+
+    public function getImageUrlAttribute()
+    {
+        if (! isset($this->attributes['image_url']) || ! $this->attributes['image_url']) {
+            return null;
+        }
+
+        if (filter_var($this->attributes['image_url'], FILTER_VALIDATE_URL)) {
+            return $this->attributes['image_url'];
+        }
+
+        return \Illuminate\Support\Facades\Storage::disk('public')->url($this->attributes['image_url']);
+    }
 }
