@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\BlogPost;
 use App\Models\Service;
 use App\Models\SitePage;
@@ -13,11 +14,13 @@ class FrontendController extends Controller
     public function home()
     {
         $page = $this->pageByKey('home');
+        $banners = \App\Models\Banner::where('is_active', true)->orderBy('sort_order')->get();
         $services = Schema::hasTable('services') ? $this->serviceQuery()->take(3)->get() : collect();
         $blogs = Schema::hasTable('blog_posts') ? $this->blogPostQuery()->take(3)->get() : collect();
 
         return view('frontend.home', [
             'page' => $page,
+            'banners' => $banners,
             'services' => $services,
             'blogs' => $blogs,
         ]);

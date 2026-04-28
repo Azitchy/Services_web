@@ -1,18 +1,61 @@
-﻿@extends('frontend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', 'Smart Express Cleaning Services')
 @section('body_class', 'front-home')
 
 @section('content')
-    <header class="hero" id="home">
-        <div class="container">
-            <div class="col-lg-8 fade-up">
-                <h1 class="hero-title">{{ $page->hero_title }}</h1>
-                <p class="hero-subtitle mb-4">{{ $page->hero_subtitle }}</p>
-                <a href="#contact" class="btn-pop text-decoration-none">{{ data_get($page->extra_content, 'hero_button', 'Pop Me a Price') }}</a>
+    @if($banners->count() > 0)
+        <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                @foreach($banners as $index => $banner)
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="{{ $index === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
+                @endforeach
             </div>
+            <div class="carousel-inner">
+                @foreach($banners as $index => $banner)
+                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }} carousel-banner-item" style="background-image: url('{{ $banner->image_url }}');">
+                        <div class="carousel-banner-overlay">
+                            <div class="container">
+                                <div class="col-lg-8 fade-up visible">
+                                    @if($banner->subtitle)
+                                        <p class="page-kicker mb-2">{{ $banner->subtitle }}</p>
+                                    @endif
+                                    <h1 class="hero-title">{{ $banner->title }}</h1>
+                                    @if($banner->content)
+                                        <p class="hero-subtitle mb-4">{{ $banner->content }}</p>
+                                    @endif
+                                    @if($banner->button_text)
+                                        <a href="{{ $banner->button_link ?: '#contact' }}" class="btn-pop text-decoration-none">{{ $banner->button_text }}</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            @if($banners->count() > 1)
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            @endif
         </div>
-    </header>
+    @else
+        <header class="hero" id="home">
+            <div class="container">
+                <div class="col-lg-8 fade-up visible">
+                    <h1 class="hero-title">{{ $page->hero_title }}</h1>
+                    <p class="hero-subtitle mb-4">{{ $page->hero_subtitle }}</p>
+                    <a href="#contact" class="btn-pop text-decoration-none">{{ data_get($page->extra_content, 'hero_button', 'Pop Me a Price') }}</a>
+                </div>
+            </div>
+        </header>
+    @endif
+
 
     <section class="section-shell" id="about-snippet">
         <div class="container">

@@ -59,6 +59,38 @@ h4 {
     color: #fff;
 }
 
+/* Banner Carousel Styles */
+.hero-carousel, .hero-carousel .carousel-inner, .hero-carousel .carousel-item {
+    height: 88vh;
+    min-height: 600px;
+}
+
+.carousel-banner-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.carousel-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(95deg, rgba(12, 25, 41, 0.9) 0%, rgba(12, 25, 41, 0.4) 100%);
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.hero-carousel .carousel-control-prev, .hero-carousel .carousel-control-next {
+    width: 5%;
+    z-index: 10;
+}
+
+.hero-carousel .carousel-indicators {
+    margin-bottom: 2rem;
+}
+
+
 .hero-title {
     font-size: clamp(2.2rem, 6vw, 4.2rem);
     line-height: 0.95;

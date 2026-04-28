@@ -29,6 +29,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/site-pages', AdminSitePageController::class)->except(['show']);
         Route::resource('/services', AdminServiceController::class)->except(['show']);
         Route::resource('/blog-posts', AdminBlogPostController::class)->except(['show']);
+        Route::resource('/banners', \App\Http\Controllers\Admin\AdminBannerController::class)->except(['show']);
 
         Route::get('/contact-inquiries', [AdminContactInquiryController::class, 'index'])->name('contact-inquiries.index');
         Route::get('/contact-inquiries/{contactInquiry}', [AdminContactInquiryController::class, 'show'])->name('contact-inquiries.show');
