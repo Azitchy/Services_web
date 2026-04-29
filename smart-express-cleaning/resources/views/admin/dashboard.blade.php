@@ -1,4 +1,4 @@
-﻿@extends('admin.layout')
+@extends('admin.layout')
 
 @section('title', 'Dashboard')
 
@@ -8,33 +8,61 @@
         <span class="text-secondary">Welcome, {{ auth()->user()->name }}</span>
     </div>
 
+    <style>
+        .stat-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        }
+    </style>
+
     <div class="row g-3 mb-4">
         <div class="col-6 col-lg-2">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Hosts</p><h2 class="h4 mb-0">{{ $stats['hosts'] }}</h2></div></div>
+            <a href="#" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Hosts</p><h2 class="h4 mb-0 text-dark">{{ $stats['hosts'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-2">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Cleaners</p><h2 class="h4 mb-0">{{ $stats['cleaners'] }}</h2></div></div>
+            <a href="#" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Cleaners</p><h2 class="h4 mb-0 text-dark">{{ $stats['cleaners'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-2">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Properties</p><h2 class="h4 mb-0">{{ $stats['properties'] }}</h2></div></div>
+            <a href="#" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Properties</p><h2 class="h4 mb-0 text-dark">{{ $stats['properties'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-2">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Bookings</p><h2 class="h4 mb-0">{{ $stats['bookings'] }}</h2></div></div>
+            <a href="#" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Bookings</p><h2 class="h4 mb-0 text-dark">{{ $stats['bookings'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-2">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Jobs</p><h2 class="h4 mb-0">{{ $stats['jobs'] }}</h2></div></div>
+            <a href="#" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Jobs</p><h2 class="h4 mb-0 text-dark">{{ $stats['jobs'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-2">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">New Inquiries</p><h2 class="h4 mb-0">{{ $stats['new_inquiries'] }}</h2></div></div>
+            <a href="{{ route('admin.contact-inquiries.index') }}" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">New Inquiries</p><h2 class="h4 mb-0 text-dark">{{ $stats['new_inquiries'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-4">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Site Pages</p><h2 class="h4 mb-0">{{ $stats['site_pages'] }}</h2></div></div>
+            <a href="{{ route('admin.site-pages.index') }}" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Site Pages</p><h2 class="h4 mb-0 text-dark">{{ $stats['site_pages'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-4">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Services (CMS)</p><h2 class="h4 mb-0">{{ $stats['services'] }}</h2></div></div>
+            <a href="{{ route('admin.services.index') }}" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Services (CMS)</p><h2 class="h4 mb-0 text-dark">{{ $stats['services'] }}</h2></div></div>
+            </a>
         </div>
         <div class="col-6 col-lg-4">
-            <div class="card border-0 shadow-sm"><div class="card-body"><p class="text-secondary mb-1 small">Blog Posts</p><h2 class="h4 mb-0">{{ $stats['blog_posts'] }}</h2></div></div>
+            <a href="{{ route('admin.blog-posts.index') }}" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Blog Posts</p><h2 class="h4 mb-0 text-dark">{{ $stats['blog_posts'] }}</h2></div></div>
+            </a>
         </div>
     </div>
 
@@ -151,7 +179,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-6">
             <div class="card border-0 shadow-sm">
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
                     <h3 class="h5 mb-0">Latest Blog Posts</h3>
@@ -179,7 +207,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 @endsection
 
