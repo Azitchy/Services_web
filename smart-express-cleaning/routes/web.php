@@ -33,5 +33,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::resource('/contact-inquiries', AdminContactInquiryController::class)->only(['index', 'show', 'update', 'destroy']);
         Route::resource('/why-choose-us', App\Http\Controllers\Admin\WhyChooseUsController::class)->except(['show']);
+        Route::resource('/about-items', \App\Http\Controllers\Admin\AdminAboutItemController::class)->except(['show']);
     });
 });

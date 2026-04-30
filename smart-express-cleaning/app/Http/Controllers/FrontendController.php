@@ -31,10 +31,24 @@ class FrontendController extends Controller
     public function about()
     {
         $page = $this->pageByKey('about');
-        $services = Schema::hasTable('services') ? $this->serviceQuery()->take(4)->get() : collect();
+        
+        $aboutWhoWeAre = \App\Models\AboutItem::where('type', 'who_we_are')
+            ->where('is_active', true)
+            ->first();
+
+        $deliverItems = \App\Models\AboutItem::where('type', 'deliver')
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        // If no deliver items, fall back to services
+        $services = $deliverItems->isEmpty() 
+            ? (Schema::hasTable('services') ? $this->serviceQuery()->take(4)->get() : collect())
+            : $deliverItems;
 
         return view('frontend.about', [
             'page' => $page,
+            'aboutWhoWeAre' => $aboutWhoWeAre,
             'services' => $services,
         ]);
     }

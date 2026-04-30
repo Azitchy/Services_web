@@ -25,12 +25,18 @@
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6 fade-up">
-                    <img class="page-image" src="{{ data_get($page->extra_content, 'who_image_url', 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=80') }}" alt="Professional cleaning team">
+                    <img class="page-image" src="{{ $aboutWhoWeAre->image ?? data_get($page->extra_content, 'who_image_url', 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=80') }}" alt="Professional cleaning team">
                 </div>
                 <div class="col-lg-6 fade-up">
-                    <h2 class="section-title mb-2">{{ data_get($page->extra_content, 'who_title', $page->section_title ?: 'Who We Are') }}</h2>
-                    <p class="text-secondary">{{ data_get($page->extra_content, 'who_paragraph_1', $page->section_subtitle ?: 'We are a guest-experience focused cleaning company.') }}</p>
-                    <p class="text-secondary mb-0">{{ data_get($page->extra_content, 'who_paragraph_2', 'From same-day turnovers to deep cleaning and amenity checks, we keep properties spotless and guest-ready.') }}</p>
+                    <h2 class="section-title mb-2">{{ $aboutWhoWeAre->title ?? data_get($page->extra_content, 'who_title', $page->section_title ?: 'Who We Are') }}</h2>
+                    @if(isset($aboutWhoWeAre) && $aboutWhoWeAre->content)
+                        <div class="text-secondary">
+                            {!! nl2br(e($aboutWhoWeAre->content)) !!}
+                        </div>
+                    @else
+                        <p class="text-secondary">{{ data_get($page->extra_content, 'who_paragraph_1', $page->section_subtitle ?: 'We are a guest-experience focused cleaning company.') }}</p>
+                        <p class="text-secondary mb-0">{{ data_get($page->extra_content, 'who_paragraph_2', 'From same-day turnovers to deep cleaning and amenity checks, we keep properties spotless and guest-ready.') }}</p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -65,7 +71,13 @@
                     <div class="col-md-6 fade-up">
                         <article class="service-line">
                             <h3 class="h4 mb-2">{{ $service->title }}</h3>
-                            <p class="mb-0">{{ $service->short_description ?: $service->description }}</p>
+                            <p class="mb-0">
+                                @if($service instanceof \App\Models\Service)
+                                    {{ $service->short_description ?: $service->description }}
+                                @else
+                                    {{ $service->content }}
+                                @endif
+                            </p>
                         </article>
                     </div>
                 @endforeach
