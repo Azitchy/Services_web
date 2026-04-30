@@ -31,9 +31,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('/blog-posts', AdminBlogPostController::class)->except(['show']);
         Route::resource('/banners', \App\Http\Controllers\Admin\AdminBannerController::class)->except(['show']);
 
-        Route::get('/contact-inquiries', [AdminContactInquiryController::class, 'index'])->name('contact-inquiries.index');
-        Route::get('/contact-inquiries/{contactInquiry}', [AdminContactInquiryController::class, 'show'])->name('contact-inquiries.show');
-        Route::put('/contact-inquiries/{contactInquiry}', [AdminContactInquiryController::class, 'update'])->name('contact-inquiries.update');
-        Route::delete('/contact-inquiries/{contactInquiry}', [AdminContactInquiryController::class, 'destroy'])->name('contact-inquiries.destroy');
+        Route::resource('/contact-inquiries', AdminContactInquiryController::class)->only(['index', 'show', 'update', 'destroy']);
+        Route::resource('/why-choose-us', App\Http\Controllers\Admin\WhyChooseUsController::class)->except(['show']);
     });
 });

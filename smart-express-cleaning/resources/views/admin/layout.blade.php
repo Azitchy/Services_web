@@ -40,6 +40,7 @@
                 <a class="admin-menu-link @if(request()->routeIs('admin.services.*')) active @endif" href="{{ route('admin.services.index') }}">Services</a>
                 <a class="admin-menu-link @if(request()->routeIs('admin.banners.*')) active @endif" href="{{ route('admin.banners.index') }}">Banners</a>
                 <a class="admin-menu-link @if(request()->routeIs('admin.blog-posts.*')) active @endif" href="{{ route('admin.blog-posts.index') }}">Blog Posts</a>
+                <a class="admin-menu-link @if(request()->routeIs('admin.why-choose-us.*')) active @endif" href="{{ route('admin.why-choose-us.index') }}">Why Choose Us</a>
                 <a class="admin-menu-link @if(request()->routeIs('admin.contact-inquiries.*')) active @endif" href="{{ route('admin.contact-inquiries.index') }}">Contact Inquiries</a>
                 <a class="admin-menu-link" href="{{ route('home') }}" target="_blank">View Website</a>
                 <form method="POST" action="{{ route('admin.logout') }}" class="mt-2">

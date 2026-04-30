@@ -70,12 +70,16 @@
             </div>
 
             @php
-                $whyCards = data_get($page->extra_content, 'why_cards', [
-                    ['title' => 'Experienced, Trusted Team', 'text' => 'All cleaners are trained for high-standard holiday home delivery.'],
-                    ['title' => 'Guest-Ready Standards', 'text' => 'Premium products, linens, and staging checks on every turnover.'],
-                    ['title' => 'Reliable & Flexible', 'text' => 'Scheduled around your booking flow with responsive support.'],
-                    ['title' => 'Powered by Clean Tech', 'text' => 'Automation-backed operations designed for modern property teams.'],
-                ]);
+                if (isset($whyChooseUs) && $whyChooseUs->count() > 0) {
+                    $whyCards = $whyChooseUs;
+                } else {
+                    $whyCards = data_get($page->extra_content, 'why_cards', [
+                        ['title' => 'Experienced, Trusted Team', 'text' => 'All cleaners are trained for high-standard holiday home delivery.'],
+                        ['title' => 'Guest-Ready Standards', 'text' => 'Premium products, linens, and staging checks on every turnover.'],
+                        ['title' => 'Reliable & Flexible', 'text' => 'Scheduled around your booking flow with responsive support.'],
+                        ['title' => 'Powered by Clean Tech', 'text' => 'Automation-backed operations designed for modern property teams.'],
+                    ]);
+                }
             @endphp
 
             <div class="row g-4">
@@ -121,7 +125,7 @@
         </div>
     </section>
 
-    <section class="section-shell">
+    <section class="section-shell blog-wrap">
         <div class="container">
             <div class="row mb-4 align-items-end">
                 <div class="col-lg-8 fade-up">
