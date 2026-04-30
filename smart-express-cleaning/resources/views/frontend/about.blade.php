@@ -1,4 +1,4 @@
-﻿@extends('frontend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', ($page->name ?: 'About Us').' - Smart Express Cleaning')
 @section('body_class', 'front-page')
@@ -21,7 +21,7 @@
         ]);
     @endphp
 
-    <section class="section-shell pt-0">
+    <section class="section-shell section-paper pt-0">
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6 fade-up">
@@ -36,7 +36,7 @@
         </div>
     </section>
 
-    <section class="section-shell">
+    <!-- <section class="section-shell section-paper">
         <div class="container">
             <h2 class="section-title mb-4 fade-up">{{ data_get($page->extra_content, 'values_title', 'Our Core Values') }}</h2>
             <div class="row g-4">
@@ -50,7 +50,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="section-shell services-wrap">
         <div class="container">

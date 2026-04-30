@@ -1,4 +1,4 @@
-﻿@extends('frontend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', ($page->name ?: 'Blogs').' - Smart Express Cleaning')
 @section('body_class', 'front-page')
@@ -12,7 +12,7 @@
         </div>
     </section>
 
-    <section class="section-shell pt-0">
+    <section class="section-shell section-paper pt-0">
         <div class="container">
             <div class="row g-4">
                 @forelse ($blogs as $blog)

@@ -125,7 +125,7 @@
         </div>
     </section>
 
-    <section class="section-shell blog-wrap">
+    <section class="section-shell section-paper">
         <div class="container">
             <div class="row mb-4 align-items-end">
                 <div class="col-lg-8 fade-up">

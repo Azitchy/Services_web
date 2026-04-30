@@ -1,4 +1,4 @@
-﻿@extends('frontend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', ($page->name ?: 'Our Services').' - Smart Express Cleaning')
 @section('body_class', 'front-page')
@@ -12,7 +12,7 @@
         </div>
     </section>
 
-    <section class="section-shell pt-0">
+    <section class="section-shell section-paper pt-0">
         <div class="container">
             <div class="row g-4">
                 @forelse ($services as $service)
@@ -42,7 +42,7 @@
         ]);
     @endphp
 
-    <section class="section-shell">
+    <!-- <section class="section-shell">
         <div class="container">
             <div class="process-strip fade-up">
                 <h2 class="section-title mb-3">{{ $page->section_title ?: 'How Our Process Works' }}</h2>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     @include('frontend.partials.contact-form')
 @endsection

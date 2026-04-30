@@ -250,12 +250,12 @@ h4 {
     border: 1px solid var(--line);
 }
 
-.blog-wrap {
+.section-paper {
     background: #ffffff;
     color: var(--ink-dark);
 }
 
-.blog-wrap .section-lead {
+.section-paper .section-lead {
     color: #5f6f81;
 }
 
