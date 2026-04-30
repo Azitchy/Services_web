@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h3 mb-0">Site Pages</h1>
-        <a href="{{ route('admin.site-pages.create') }}" class="btn btn-dark btn-sm">Add Site Page</a>
+        <!-- <h1 class="h3 mb-0">Site Pages</h1> -->
+        <!-- <a href="{{ route('admin.site-pages.create') }}" class="btn btn-dark btn-sm">Add Site Page</a> -->
     </div>
 
     <div class="card border-0 shadow-sm">
