@@ -44,15 +44,15 @@ class WhyChooseUsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WhyChooseUs $whyChooseUs)
+    public function edit(WhyChooseUs $why_choose_u)
     {
-        return view('admin.why-choose-us.edit', compact('whyChooseUs'));
+        return view('admin.why-choose-us.edit', ['whyChooseUs' => $why_choose_u]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WhyChooseUs $whyChooseUs)
+    public function update(Request $request, WhyChooseUs $why_choose_u)
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -60,7 +60,7 @@ class WhyChooseUsController extends Controller
             'order' => 'required|integer|min:0',
         ]);
 
-        $whyChooseUs->update($request->all());
+        $why_choose_u->update($request->all());
 
         return redirect()->route('admin.why-choose-us.index')->with('success', 'Why Choose Us item updated successfully.');
     }
@@ -68,9 +68,9 @@ class WhyChooseUsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WhyChooseUs $whyChooseUs)
+    public function destroy(WhyChooseUs $why_choose_u)
     {
-        $whyChooseUs->delete();
+        $why_choose_u->delete();
 
         return redirect()->route('admin.why-choose-us.index')->with('success', 'Why Choose Us item deleted successfully.');
     }

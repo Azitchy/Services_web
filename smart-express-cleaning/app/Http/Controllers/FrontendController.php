@@ -17,7 +17,7 @@ class FrontendController extends Controller
         $banners = \App\Models\Banner::where('is_active', true)->orderBy('sort_order')->get();
         $services = Schema::hasTable('services') ? $this->serviceQuery()->take(3)->get() : collect();
         $blogs = Schema::hasTable('blog_posts') ? $this->blogPostQuery()->take(3)->get() : collect();
-        $whyChooseUs = Schema::hasTable('why_choose_us') ? \App\Models\WhyChooseUs::orderBy('order', 'asc')->get() : collect();
+        $whyChooseUs = Schema::hasTable('why_choose_us') ? \App\Models\WhyChooseUs::orderBy('order', 'asc')->take(4)->get() : collect();
 
         return view('frontend.home', [
             'page' => $page,
