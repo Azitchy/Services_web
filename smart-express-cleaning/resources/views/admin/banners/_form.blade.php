@@ -35,15 +35,19 @@
         <div class="card border-0 shadow-sm mb-4">
             <div class="card-body p-4">
                 <div class="mb-3">
-                    <label class="form-label">Banner Image</label>
+                    <label class="form-label">Banner Media (Image/Video)</label>
                     <input type="file" name="image_file" class="form-control" {{ isset($banner) ? '' : 'required' }}>
-                    <div class="form-text text-secondary mt-1">Recommended: 1920x800px. Max 5MB.</div>
+                    <div class="form-text text-secondary mt-1">Recommended: 1920x800px for images. MP4 for videos. Max 50MB.</div>
                 </div>
 
                 @if (isset($banner) && $banner->image_url)
                     <div class="mb-3">
-                        <label class="form-label d-block text-secondary small text-uppercase">Current Image</label>
-                        <img src="{{ $banner->image_url }}" alt="Preview" class="img-fluid rounded border">
+                        <label class="form-label d-block text-secondary small text-uppercase">Current Media</label>
+                        @if($banner->isVideo())
+                            <video src="{{ $banner->image_url }}" controls class="img-fluid rounded border w-100" style="max-height: 200px; object-fit: cover;"></video>
+                        @else
+                            <img src="{{ $banner->image_url }}" alt="Preview" class="img-fluid rounded border">
+                        @endif
                     </div>
                 @endif
 

@@ -63,31 +63,6 @@
     </style>
 
     <div class="row g-3 mb-4">
-        <!-- <div class="col-6 col-lg-2">
-            <a href="#" class="text-decoration-none">
-                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Hosts</p><h2 class="h4 mb-0 text-dark">{{ $stats['hosts'] }}</h2></div></div>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#" class="text-decoration-none">
-                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Cleaners</p><h2 class="h4 mb-0 text-dark">{{ $stats['cleaners'] }}</h2></div></div>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#" class="text-decoration-none">
-                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Properties</p><h2 class="h4 mb-0 text-dark">{{ $stats['properties'] }}</h2></div></div>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#" class="text-decoration-none">
-                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Bookings</p><h2 class="h4 mb-0 text-dark">{{ $stats['bookings'] }}</h2></div></div>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#" class="text-decoration-none">
-                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Jobs</p><h2 class="h4 mb-0 text-dark">{{ $stats['jobs'] }}</h2></div></div>
-            </a>
-        </div> -->
         <div class="col-6 col-lg-2">
             <a href="{{ route('admin.contact-inquiries.index') }}" class="text-decoration-none">
                 <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">New Inquiries</p><h2 class="h4 mb-0 text-dark">{{ $stats['new_inquiries'] }}</h2></div></div>

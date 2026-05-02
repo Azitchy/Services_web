@@ -27,7 +27,9 @@ class AdminBannerController extends Controller
         $validated = $this->validateRequest($request);
 
         if ($request->hasFile('image_file')) {
-            $validated['image_url'] = $this->storeImage($request->file('image_file'));
+            $file = $request->file('image_file');
+            $validated['image_url'] = $this->storeImage($file);
+            $validated['media_type'] = $this->getMediaType($file);
         }
 
         Banner::create($validated);
@@ -46,7 +48,9 @@ class AdminBannerController extends Controller
 
         if ($request->hasFile('image_file')) {
             $this->deleteStoredImage($banner->getRawOriginal('image_url'));
-            $validated['image_url'] = $this->storeImage($request->file('image_file'));
+            $file = $request->file('image_file');
+            $validated['image_url'] = $this->storeImage($file);
+            $validated['media_type'] = $this->getMediaType($file);
         }
 
         $banner->update($validated);
@@ -68,7 +72,7 @@ class AdminBannerController extends Controller
             'title' => ['nullable', 'string', 'max:255'],
             'subtitle' => ['nullable', 'string', 'max:255'],
             'content' => ['nullable', 'string'],
-            'image_file' => [$bannerId ? 'nullable' : 'required', 'image', 'max:5120'],
+            'image_file' => [$bannerId ? 'nullable' : 'required', 'file', 'mimes:jpg,jpeg,png,webp,mp4,mov,avi,wmv', 'max:51200'],
             'button_text' => ['nullable', 'string', 'max:100'],
             'button_link' => ['nullable', 'string', 'max:255'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
@@ -97,5 +101,11 @@ class AdminBannerController extends Controller
         if (Storage::disk('public')->exists($imagePath)) {
             Storage::disk('public')->delete($imagePath);
         }
+    }
+
+    private function getMediaType(UploadedFile $file): string
+    {
+        $mime = $file->getMimeType();
+        return str_starts_with($mime, 'video/') ? 'video' : 'image';
     }
 }

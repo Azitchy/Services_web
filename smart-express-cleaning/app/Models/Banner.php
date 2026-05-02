@@ -11,11 +11,17 @@ class Banner extends Model
         'subtitle',
         'content',
         'image_url',
+        'media_type',
         'button_text',
         'button_link',
         'sort_order',
         'is_active',
     ];
+
+    public function isVideo(): bool
+    {
+        return $this->media_type === 'video';
+    }
 
     protected function casts(): array
     {

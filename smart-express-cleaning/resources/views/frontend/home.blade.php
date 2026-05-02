@@ -13,7 +13,12 @@
             </div>
             <div class="carousel-inner">
                 @foreach($banners as $index => $banner)
-                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }} carousel-banner-item" style="background-image: url('{{ $banner->image_url }}');">
+                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }} carousel-banner-item" @if(!$banner->isVideo()) style="background-image: url('{{ $banner->image_url }}');" @endif>
+                        @if($banner->isVideo())
+                            <video autoplay muted loop playsinline class="carousel-banner-video">
+                                <source src="{{ $banner->image_url }}" type="video/mp4">
+                            </video>
+                        @endif
                         <div class="carousel-banner-overlay">
                             <div class="container">
                                 <div class="col-lg-8 fade-up visible">
