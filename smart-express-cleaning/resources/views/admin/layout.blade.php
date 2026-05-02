@@ -44,6 +44,7 @@
                 <a class="admin-menu-link @if(request()->routeIs('admin.about-items.*')) active @endif" href="{{ route('admin.about-items.index') }}">About Us Content</a>
                 <a class="admin-menu-link @if(request()->routeIs('admin.settings.*')) active @endif" href="{{ route('admin.settings.index') }}">Site Settings</a>
                 <a class="admin-menu-link @if(request()->routeIs('admin.contact-inquiries.*')) active @endif" href="{{ route('admin.contact-inquiries.index') }}">Contact Inquiries</a>
+                <a class="admin-menu-link @if(request()->routeIs('admin.profile.*')) active @endif" href="{{ route('admin.profile.edit') }}">Profile Settings</a>
                 <a class="admin-menu-link" href="{{ route('home') }}" target="_blank">View Website</a>
                 <form method="POST" action="{{ route('admin.logout') }}" class="mt-2">
                     @csrf
@@ -58,7 +59,21 @@
                     <button class="menu-toggle" id="sidebarToggle" type="button" aria-label="Toggle menu">☰</button>
                     <span class="text-secondary small">Admin Panel</span>
                 </div>
-                <span class="text-secondary small">{{ auth()->user()->name }}</span>
+                <div class="dropdown">
+                    <a href="#" class="text-decoration-none text-secondary small dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ auth()->user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2">
+                        <li><a class="dropdown-item" href="{{ route('admin.profile.edit') }}">Profile Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form method="POST" action="{{ route('admin.logout') }}">
+                                @csrf
+                                <button class="dropdown-item text-danger" type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </header>
 
             <main class="admin-main">

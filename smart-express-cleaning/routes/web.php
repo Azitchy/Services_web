@@ -25,6 +25,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+        
+        Route::get('/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [\App\Http\Controllers\Admin\AdminProfileController::class, 'update'])->name('profile.update');
 
         Route::resource('/site-pages', AdminSitePageController::class)->except(['show']);
         Route::resource('/services', AdminServiceController::class)->except(['show']);
