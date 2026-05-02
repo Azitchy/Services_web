@@ -83,6 +83,11 @@
                 <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Blog Posts</p><h2 class="h4 mb-0 text-dark">{{ $stats['blog_posts'] }}</h2></div></div>
             </a>
         </div>
+        <div class="col-6 col-lg-2">
+            <a href="{{ route('admin.banners.index') }}" class="text-decoration-none">
+                <div class="card border-0 shadow-sm stat-card h-100"><div class="card-body"><p class="text-secondary mb-1 small">Banners</p><h2 class="h4 mb-0 text-dark">{{ $stats['banners'] }}</h2></div></div>
+            </a>
+        </div>
     </div>
 
     <div class="card border-0 shadow-sm mb-4">
@@ -92,6 +97,7 @@
                 <a href="{{ route('admin.site-pages.index') }}" class="btn btn-sm btn-outline-dark">Manage Site Pages</a>
                 <a href="{{ route('admin.services.index') }}" class="btn btn-sm btn-outline-dark">Manage Services</a>
                 <a href="{{ route('admin.blog-posts.index') }}" class="btn btn-sm btn-outline-dark">Manage Blog Posts</a>
+                <a href="{{ route('admin.banners.index') }}" class="btn btn-sm btn-outline-dark">Manage Banners</a>
                 <a href="{{ route('admin.contact-inquiries.index') }}" class="btn btn-sm btn-outline-dark">Manage Contact Inquiries</a>
             </div>
         </div>

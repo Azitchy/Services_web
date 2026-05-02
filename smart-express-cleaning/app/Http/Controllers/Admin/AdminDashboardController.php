@@ -11,6 +11,7 @@ use App\Models\Property;
 use App\Models\Service;
 use App\Models\SitePage;
 use App\Models\User;
+use App\Models\Banner;
 
 class AdminDashboardController extends Controller
 {
@@ -26,6 +27,7 @@ class AdminDashboardController extends Controller
             'site_pages' => SitePage::query()->count(),
             'services' => Service::query()->count(),
             'blog_posts' => BlogPost::query()->count(),
+            'banners' => Banner::query()->count(),
         ];
 
         $recentInquiries = ContactInquiry::query()
