@@ -196,16 +196,12 @@
             <div class="form-check">
                 <div>
                     <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                    <label class="form-check-label" for="remember">Remember me</label>
-                </div>
-                <a href="#" class="forgot-password">Forgot password?</a>
-            </div>
+                    <label class="form-check-label" for="remember">Remember me</label>          
 
-            <button type="submit" class="btn-login">Login</button>
-
-            <div class="register-link">
-                Don't have an account? <a href="#">Register</a>
-            </div>
+            <button type="submit" class="btn-login" style="
+    margin: 34px;
+">Login</button>
+          
         </form>
     </div>
 
